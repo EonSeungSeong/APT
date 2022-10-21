@@ -7,7 +7,12 @@
 
 ## Description
 인공지능을 활용한 홈트레이닝 자세 교정 서비스   
- 
+
+![image](https://user-images.githubusercontent.com/71765587/197096878-10fe5d85-8854-4051-9fc9-ac6a9af5f5c3.png)
+![image](https://user-images.githubusercontent.com/71765587/197097006-aba4db49-6365-41a5-97bc-4f814903ad24.png)
+![tempsnip](https://user-images.githubusercontent.com/71765587/197097241-3d7d7ab9-8ca1-400a-860c-697eaac7b392.png)
+
+
 ## Requirements
 ```
 pip install -r requirements.txt
