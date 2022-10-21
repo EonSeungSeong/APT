@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <title>AI Posture Teacher</title>
+        <meta name="author" content="GNU">
+        <meta name="description" content="APT(AI Posture Teacher) 인공지능 자세 교정 서비스">
+        <!-- 부트스트랩 css-->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <!--파비콘-->
+        <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon" sizes="16x16">
+        <!--메인화면 css-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        <!-- 긁어옴 Responsive.css-->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/responsive.css') }}">
+        <!-- Scrollbar Custom CSS -->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/jquery.mCustomScrollbar.min.css') }}">
+            <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    </head>
+
+    <body class="main-layout">
+        <!-- 로딩-->
+        <!-- <div class="loader_bg">
+            <div class="loader"><img src="{{ url_for('static', filename='images/loading.gif') }}" alt="#"/></div>
+        </div> -->
+        <!-- 헤더 -->
+        {% include "navbar.html" %}
+        {% block content %}
+        {% endblock %}
+        
+        <!-- Javascript-->
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugin.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+        <!-- sidebar -->
+        <script
+            src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+        <script
+            src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    </body>
+
+</html>

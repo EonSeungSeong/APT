@@ -1,0 +1,1144 @@
+/*--------------------------------------------------------------------- import Fonts ---------------------------------------------------------------------*/
+
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,400,600,700,900&display=swap');
+
+/*****---------------------------------------- 1) font-family: 'Rajdhani', sans-serif;
+2) font-family: 'Poppins', sans-serif;
+----------------------------------------*****/
+/*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
+
+@import url(animate.min.css);
+@import url(normalize.css);
+@import url(meanmenu.css);
+@import url(owl.carousel.min.css);
+@import url(slick.css);
+@import url(jquery-ui.css);
+@import url(nice-select.css);
+/*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
+/* 템플릿 참고하며 만들어서 변수이름이랑 구현내용이 안맞을 수 있답니다,,, */
+
+* {
+     box-sizing: border-box !important;
+}
+
+html {
+     scroll-behavior: smooth;
+}
+
+body {
+     color: #666666;
+     font-size: 14px;
+     font-family: 'Raleway', sans-serif;
+     line-height: 1.80857;
+     font-weight: normal;
+}
+
+a {
+     color: #1f1f1f;
+     text-decoration: none !important;
+     outline: none !important;
+     -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+     -ms-transition: all .3s ease-in-out;
+     -o-transition: all .3s ease-in-out;
+     transition: all .3s ease-in-out;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+     letter-spacing: 0;
+     font-weight: normal;
+     position: relative;
+     padding: 0 0 10px 0;
+     font-weight: normal;
+     line-height: normal;
+     color: #111111;
+     margin: 0
+}
+
+h1 {
+     font-size: 24px;
+}
+
+h2 {
+     font-size: 22px;
+}
+
+h3 {
+     font-size: 18px;
+}
+
+h4 {
+     font-size: 16px
+}
+
+h5 {
+     font-size: 14px
+}
+
+h6 {
+     font-size: 13px
+}
+
+*,
+*::after,
+*::before {
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     box-sizing: border-box;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+     color: #212121;
+     text-decoration: none!important;
+     opacity: 1
+}
+
+button:focus {
+     outline: none;
+}
+
+ul,
+li,
+ol {
+     margin: 0px;
+     padding: 0px;
+     list-style: none;
+}
+
+p {
+     margin: 0px;
+     font-weight: 500;
+     font-size: 15px;
+     line-height: 24px;
+}
+
+a {
+     color: #222222;
+     text-decoration: none;
+     outline: none !important;
+}
+
+a,
+.btn {
+     text-decoration: none !important;
+     outline: none !important;
+     -webkit-transition: all .3s ease-in-out;
+     -moz-transition: all .3s ease-in-out;
+     -ms-transition: all .3s ease-in-out;
+     -o-transition: all .3s ease-in-out;
+     transition: all .3s ease-in-out;
+}
+
+img {
+     max-width: 100%;
+     height: auto;
+}
+
+:focus {
+     outline: 0;
+}
+
+.btn-custom {
+     margin-top: 20px;
+     background-color: transparent !important;
+     border: 2px solid #ddd;
+     padding: 12px 40px;
+     font-size: 16px;
+}
+
+.lead {
+     font-size: 18px;
+     line-height: 30px;
+     color: #767676;
+     margin: 0;
+     padding: 0;
+}
+
+.form-control:focus {
+     border-color: #ffffff !important;
+     box-shadow: 0 0 0 .2rem rgba(255, 255, 255, .25);
+}
+
+.navbar-form input {
+     border: none !important;
+}
+
+.badge {
+     font-weight: 500;
+}
+
+blockquote {
+     margin: 20px 0 20px;
+     padding: 30px;
+}
+
+button {
+     border: 0;
+     margin: 0;
+     padding: 0;
+     cursor: pointer;
+}
+
+.full {
+     float: left;
+     width: 100%;
+}
+
+.layout_padding {
+     padding-top: 90px;
+     padding-bottom: 90px;
+}
+
+.layout_padding_2 {
+     padding-top: 75px;
+     padding-bottom: 75px;
+}
+
+.light_silver {
+     background: #f9f9f9;
+}
+
+.theme_bg {
+     background: #38c8a8;
+}
+
+.margin_top_30 {
+     margin-top: 30px !important;
+}
+
+.full {
+     width: 100%;
+     float: left;
+     margin: 0;
+     padding: 0;
+}
+
+
+/**-- heading section --**/
+
+
+/*---------------------------- 로딩(주석으로 생략했음) ----------------------------*/
+
+.loader_bg {
+     position: fixed;
+     z-index: 9999999;
+     background: #fff;
+     width: 100%;
+     height: 100%;
+}
+
+.loader {
+     height: 100%;
+     width: 100%;
+     position: absolute;
+     left: 0;
+     top: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+
+.loader img {
+     width: 280px;
+}
+
+
+/*-- 상단 내비게이션바--*/
+
+.navigation.navbar {
+     float: right;
+     padding: 20px;
+}
+
+.navigation.navbar-dark .navbar-nav .nav-link {
+     padding: 0 25px;
+     color: #000;
+     font-size: 14px;
+     line-height: 20px;
+     font-weight: 500;
+     text-transform: uppercase;
+}
+
+.navbar-expand-md .navbar-nav {
+     padding-right: 10px;
+}
+
+.sign_btn a {
+     display: inline-block;
+     padding: 7px 35px;
+     color: #eb699e;
+     font-size: 17px;
+}
+
+
+/*-- header area --*/
+
+
+/*--------------------------------------------------------------------- top banner area ---------------------------------------------------------------------*/
+
+
+/*--------------------------------------------------------------------- layout new css ---------------------------------------------------------------------*/
+/* 상단 로고 */
+.header {
+     width: 100%;
+     background-color: #F4F3EA;
+     /* background: transparent; */
+     position: absolute;
+     padding: 0px 0px;
+}
+
+.logo{
+     margin-top: 5px;
+}
+
+.logo a {
+     font-size: 40px;
+     font-weight: bold;
+     text-transform: uppercase;
+     color: #fff;
+     line-height: 40px;
+}
+
+
+/** 메인화면 **/
+
+.banner_main {
+     background-color: #CAD0D7;
+     background-repeat: no-repeat;
+     min-height: 800px;
+     display: flex;
+     justify-content: center;
+     align-content: center;
+     align-items: center;
+     background-size: 100% 100%;
+}
+
+.text-bg {
+     text-align: left;
+     float: right;
+     max-width: 539px;
+     width: 100%;
+}
+
+.text-bg h1 {
+     color: rgb(0, 0, 0);
+     font-size: 58px;
+     line-height: 80px;
+     padding-bottom: 15px;
+     font-weight: bold;
+}
+
+.text-bg span {
+     color: #000000;
+     font-size: 30px;
+     line-height: 50px;
+     font-weight: bold;
+     padding-bottom: 20px;
+     display: block;
+}
+
+.text-bg p {
+     color: #000;
+     font-size: 17px;
+     line-height: 28px;
+     padding-bottom: 60px;
+}
+
+.text-img figure {
+     margin: 0;
+}
+
+.text-img {
+     width: 700px;
+     height: 100%;
+     object-fit:cover;
+     display: block;
+}
+
+/* .text-bg .read_more {}
+
+.text-bg .read_more:hover {} */
+
+.titlepage {
+     text-align: center;
+     padding-bottom: 60px;
+}
+
+.titlepage h2 {
+     font-size: 45px;
+     color: #3e3e3e;
+     line-height: 50px;
+     font-weight: bold;
+     padding-bottom: 20px;
+}
+
+.d_flex {
+     display: flex;
+     align-items: center;
+     flex-wrap: wrap;
+}
+
+
+/** 메인화면 끝 **/
+
+
+/** 기능설명 apt란~~~~~**/
+
+.Features {
+     background: #fff;
+     margin: 90px 0;
+}
+
+.Features .titlepage h2 {
+     color: #262626;
+     padding: 0 33px;
+     font-weight: 501;
+}
+
+.Features .titlepage span {
+     font-size: 17px;
+     line-height: 30px;
+     color:   #934A5F ;
+     font-weight: 501;
+     display: block;
+     padding-top: 10px;
+     text-transform: uppercase;
+}
+
+.Features .Our_box {
+     box-shadow: #ddd 0px 0px 10px 0px;
+     border-radius: 20px;
+     text-align: center;
+     margin-bottom: 30px;
+     padding: 60px 0;
+}
+
+.Features .Our_box h4 {
+     font-size: 20px;
+     line-height: 30px;
+     font-weight: 501;
+     padding-top: 30px;
+     padding-bottom: 0;
+}
+
+.Features .read_more {
+     color: #000000;
+     margin: 0 auto;
+     display: block;
+     margin-top: 30px;
+}
+
+.Features .read_more:hover {
+     color: #fff;
+     background: #000;
+}
+
+
+/** end 설명파트 끝 **/
+
+/** 후기파트 **/
+
+.people {
+     padding: 90px 0 141px 0;
+     background-color: #F4F3EA;
+     background-size: cover;
+     /* background-repeat: no-repeat; */
+}
+
+.people .titlepage h2 {
+     font-size: 30px;
+     color: rgb(179, 42, 42);
+}
+
+.people .titlepage span {
+     font-size: 17px;
+     line-height: 28px;
+     color: rgb(182, 57, 57);
+     font-weight: 500;
+}
+
+.people_Carousel .carousel-caption {
+     position: inherit;
+     padding: 0;
+}
+
+.people_box {
+     text-align: center;
+}
+
+.test_box {
+     padding: 30px 25px;
+     border-radius: 15px;
+     border-color: #000000;
+     border-style: solid;
+     background-color: rgb(0, 0, 0);
+}
+
+.people_Carousel .test_box h4 {
+     font-size: 21px;
+     color: #3c3c3d;
+     line-height: 18px;
+     display: block;
+     font-weight: 600;
+     padding: 0;
+}
+
+.people_Carousel .test_box p {
+     font-size: 17px;
+     line-height: 28px;
+     color: #3c3c3d;
+     padding-top: 20px;
+}
+
+.people_Carousel .carousel-indicators {
+     bottom: -50px;
+}
+
+.people_Carousel .carousel-indicators li {
+     width: 20px;
+     height: 20px;
+     color: rgb(146,132,144);
+     border-radius: 10px;
+}
+
+.people_Carousel .carousel-indicators li.active {
+     color: #333D51;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+     display: none;
+}
+
+/** end 후기파트 끝 **/
+
+/* 팀 파트*/
+.wrapper2 {
+display: flex;
+background-color: #f1cd9d  ;
+height: 650px;
+flex-direction: column;
+margin-bottom: flex;
+justify-content: center;
+align-items: center;
+}
+
+.team {
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.team-item {
+flex-basis: 170px;
+flex-shrink: 0;
+margin: 0 4px;
+opacity: 0.4;
+transition: all .4s;
+}
+
+.team-item:hover {
+opacity: 1;
+flex-basis: 270px;
+margin: 0 20px;
+}
+
+.team-item img {
+width: 100%;
+}
+
+.profile {
+background-color: #222;
+position: relative;
+overflow: hidden;
+}
+
+.profile:before {
+content: ' ';
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.95+100 */
+background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.95) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.95) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#f2000000',GradientType=0 ); /* IE6-9 */
+position: absolute;
+left: 0;
+right: 0;
+bottom: 0;
+height: 200px;
+}
+
+.profile_red {
+color: #ff4949;
+}
+
+.profile_beige {
+color: beige;
+}
+
+.profile_green {
+color: darkseagreen;
+
+}
+
+.profile_pink {
+color: pink;
+}
+
+.profile_purple {
+color: violet;
+}
+
+.profile-contents {
+position: absolute;
+left: 0;
+bottom: 0;
+padding: 10px;
+}
+
+.profile-contents h2 {
+font-size: 17px;
+}
+
+.profile-contents h2 span {
+display: block;
+font-size: 10px;
+}
+
+.profile-contents p {
+color: white;
+font-size: 10px;
+min-width: 140px;
+max-height: 0;
+overflow: hidden;
+line-height: 1.2;
+transition: all 1s;
+opacity: 0;
+}
+
+.team-item:hover .profile-contents p {
+opacity: 1;
+/* transition-delay: .05s; */
+max-height: 6em;
+margin-top: 0.4em;
+font-size: 13px;
+}
+.profile-contents h2{
+     color: white;
+     
+}
+
+.read_more {
+     font-size: 17px;
+     background-color:transparent;
+     border: #000000 solid 2px;
+     color: #000000;
+     border-radius: 40px;
+     padding: 13px 0px;
+     width: 100%;
+     margin-left: 30%;
+     max-width: 190px;
+     text-align: center;
+     display: inline-block;
+     transition: ease-in all 0.5s;
+}
+
+.read_more:hover {
+     background: #6C7A89;
+     color: #F4F3EA;
+     transition: ease-in all 0.5s;
+}
+/* 팀파트 끝 */
+
+/** 후기파트 **/
+.review{
+     background-color: #00d9ff ;
+}
+.people {
+     padding: 90px 0 141px 0;
+     background-size: cover;
+     background-repeat: no-repeat;
+}
+
+.people .titlepage h2 {
+     color: #333D51;
+}
+
+.people .titlepage span {
+     font-size: 17px;
+     line-height: 28px;
+     color: rgb(255, 0, 0);
+     font-weight: 500;
+}
+
+.people_Carousel .carousel-caption {
+     position: inherit;
+     padding: 0;
+}
+
+.people_box {
+     text-align: center;
+}
+
+.test_box {
+     padding: 30px 25px;
+     border-radius: 10px;
+     background: #fff;
+}
+
+.people_Carousel .test_box h4 {
+     font-size: 21px;
+     color: #3c3c3d;
+     line-height: 18px;
+     display: block;
+     font-weight: 600;
+     padding: 0;
+}
+
+.people_Carousel .test_box p {
+     font-size: 17px;
+     line-height: 28px;
+     color: #3c3c3d;
+     padding-top: 20px;
+}
+
+.people_Carousel .carousel-indicators {
+     bottom: -50px;
+}
+
+.people_Carousel .carousel-indicators li {
+     width: 20px;
+     height: 20px;
+     background: #f2e0ab;
+     border-radius: 10px;
+}
+
+.people_Carousel .carousel-indicators li.active {
+     background-color: #050505;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+     display: none;
+}
+
+
+/** 후기파트 끝 **/
+
+
+
+/* footer */
+.site-footer
+{
+     background-color:#26272b;
+     padding:45px 0 20px;
+     font-size:15px;
+     line-height:24px;
+     color:#FFFFFF;
+}
+.site-footer hr
+{
+     border-top-color:#bbb;
+     opacity:0.5
+}
+.site-footer hr.small
+{
+     margin:20px 0
+}
+.site-footer h6
+{
+     color:#fff;
+     font-size:16px;
+     text-transform:uppercase;
+     margin-top:5px;
+     letter-spacing:2px
+}
+.site-footer a
+{
+     color:#737373;
+}
+.site-footer a:hover
+{
+     color:#3366cc;
+     text-decoration:none;
+}
+.footer-links
+{
+     padding-left:0;
+     list-style:none
+}
+.footer-links li
+{
+     display:block
+}
+.footer-links a
+{
+     color:#737373
+}
+.footer-links a:active,.footer-links a:focus,.footer-links a:hover
+{
+     color:#3366cc;
+     text-decoration:none;
+}
+.footer-links.inline li
+{
+     display:inline-block
+}
+.site-footer .social-icons
+{
+     text-align:right
+}
+.site-footer .social-icons a
+{
+     width:40px;
+     height:40px;
+     line-height:40px;
+     margin-left:6px;
+     margin-right:0;
+     border-radius:100%;
+     background-color:#33353d
+}
+.copyright-text
+{
+     text-align: center;
+     width: 1120px;
+     margin:0
+}
+@media (max-width:991px)
+{
+     .site-footer [class^=col-]
+     {
+     margin-bottom:30px
+     }
+}
+@media (max-width:767px)
+{
+     .site-footer
+     {
+     padding-bottom:0
+     }
+     .site-footer .copyright-text,.site-footer .social-icons
+     {
+     text-align:center
+     }
+}
+
+/* predata페이지 */
+.heading {
+     text-transform: uppercase;
+     color: #000000;
+     font-weight: normal
+}
+
+.msform {
+     text-align: center;
+     position: relative;
+     margin-top: 20px
+}
+
+.msform fieldset {
+     background: white;
+     border: 0 none;
+     border-radius: 0.5rem;
+     box-sizing: border-box;
+     width: 100%;
+     margin: 0;
+     padding-bottom: 20px;
+     position: relative
+}
+
+.form-card {
+     text-align: left
+}
+
+.msform fieldset:not(:first-of-type) {
+     display: none
+}
+
+.msform input,
+.msform textarea {
+     padding: 8px 15px 8px 15px;
+     border: 1px solid #ccc;
+     border-radius: 0px;
+     margin-bottom: 25px;
+     margin-top: 2px;
+     width: 100%;
+     box-sizing: border-box;
+     font-family: montserrat;
+     color: #2C3E50;
+     background-color: #ECEFF1;
+     font-size: 13px;
+     letter-spacing: 1px
+}
+
+
+.msform input:focus,
+.msform textarea:focus {
+     -moz-box-shadow: none !important;
+     -webkit-box-shadow: none !important;
+     box-shadow: none !important;
+     border: 1px solid #000000;
+     outline-width: 0
+}
+
+.msform .action-button {
+     width: 100px;
+     background: #0069D9;
+     font-weight: bold;
+     color: white;
+     border: 0 none;
+     border-radius: 0px;
+     cursor: pointer;
+     padding: 10px 5px;
+     margin: 10px 0px 10px 5px;
+     float: right
+}
+.radiobtn{
+     width: 50%;
+     margin-right: -30px;
+     margin-left: -45px;
+}
+
+.msform .action-button:hover,
+.msform .action-button:focus {
+     background-color: #0069D9
+}
+
+.msform .action-button-previous {
+     width: 100px;
+     background: #616161;
+     font-weight: bold;
+     color: white;
+     border: 0 none;
+     border-radius: 0px;
+     cursor: pointer;
+     padding: 10px 5px;
+     margin: 10px 5px 10px 0px;
+     float: right
+}
+
+.msform .action-button-previous:hover,
+.msform .action-button-previous:focus {
+     background-color: #000000
+}
+.gender_form input{
+     width: 100%;
+     margin-top: 6px;
+     float: left;
+     display: flex;
+}
+.gender{
+     width: max-content;
+     margin-right: 150px;
+}
+
+.gender{
+     width: 150px;
+
+}
+.form{
+     display: inline-flex;
+     margin-top: 10px;
+}
+.card {
+     z-index: 0;
+     border: none;
+     position: relative
+}
+
+.fs-title {
+     font-size: 25px;
+     color: #000000;
+     margin-bottom: 15px;
+     font-weight: normal;
+     text-align: left
+}
+
+.body_form input{
+     width: 140px;
+     margin-top: 6px;
+     margin-left: -60px;
+     margin-right: -60px;
+     float: left;
+     display: flex;
+}
+.body{
+     width: 30px;
+     margin-right:30px;
+}
+.body h6{
+     color: #FFFFFF;
+}
+.body{
+     width: 150px;
+}
+
+.steps {
+     font-size: 25px;
+     color: gray;
+     margin-bottom: 10px;
+     font-weight: normal;
+     text-align: right
+}
+
+.fieldlabels {
+     color: gray;
+     text-align: left
+}
+
+#progressbar {
+     margin-bottom: 30px;
+     overflow: hidden;
+     color: lightgrey
+}
+
+#progressbar .active {
+     color: #000000
+}
+
+#progressbar li {
+     list-style-type: none;
+     font-size: 15px;
+     width: 25%;
+     float: left;
+     position: relative;
+     font-weight: 400
+}
+
+#progressbar #account:before {
+     font-family: FontAwesome;
+     content: "\f13e"
+     }
+
+#progressbar #personal:before {
+     font-family: FontAwesome;
+     content: "\f007"}
+
+#progressbar #payment:before {
+     font-family: FontAwesome;
+     content: "\f004"
+}
+
+#progressbar #confirm:before {
+     font-family: FontAwesome;
+     content: "\f00c"
+}
+
+#progressbar li:before {
+     width: 50px;
+     height: 50px;
+     line-height: 45px;
+     display: block;
+     font-size: 20px;
+     color: #ffffff;
+     background: lightgray;
+     border-radius: 50%;
+     margin: 0 auto 10px auto;
+     padding: 2px
+}
+
+#progressbar li:after {
+     content: '';
+     width: 100%;
+     height: 2px;
+     background: lightgray;
+     position: absolute;
+     left: 0;
+     top: 25px;
+     z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+     background: #0069D9
+}
+
+.progress {
+     height: 20px
+}
+
+.progress-bar {
+     background-color: #0069D9
+}
+
+.fit-image {
+     width: 100%;
+     object-fit: cover
+}
+.read_more {
+     font-size: 17px;
+     background-color:transparent;
+     border: #000000 solid 2px;
+     color: #000000;
+     border-radius: 40px;
+     padding: 13px 0px;
+     width: 100%;
+     
+     max-width: 190px;
+     text-align: center;
+     display: inline-block;
+     transition: ease-in all 0.5s;
+}
+/* 마이페이지 */
+body {
+     color: #666666;
+}
+
+.form-control:focus {
+     box-shadow: none;
+     border-color: #007BFF;
+}
+
+.profile-button {
+     background: #007BFF;
+     box-shadow: none;
+     border: none
+}
+
+.profile-button:hover {
+background: #007BFF
+}
+
+.profile-button:focus {
+background: #007BFF;
+box-shadow: none
+}
+
+.profile-button:active {
+background: #007BFF;
+box-shadow: none
+}
+
+.back:hover {
+color: #007BFF;
+cursor: pointer
+}
+
+.labels {
+font-size: 11px
+}
+
+.add-experience:hover {
+background:#007BFF;
+color: #fff;
+cursor: pointer;
+border: solid 1px #007BFF
+}
+
+/* Easy Pie Charts */
+.pr-charts .pr-chart-ctrl{display:block; float:left; width:50%; min-height:200px;}
+.pr-charts .pr-chart-ctrl .pr-chart{display:block; position:relative; width:100%; margin:0 0 20px 0; text-align:center;}
+.pr-charts .pr-chart-ctrl .pr-chart canvas{display:block; margin:0 auto; padding:0; vertical-align:top;}
+.pr-charts .pr-chart-ctrl .pr-chart i{position:absolute; top:0; left:0; width:100%; height:200px; line-height:200px; font-size:18px; font-style:normal;}/* Must have same height & line height as set in the javascript size element to vertical align centre */
+.pr-charts .pr-chart-ctrl p{margin:0; padding:0; text-transform:uppercase;}

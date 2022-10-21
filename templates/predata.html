@@ -1,0 +1,161 @@
+<!-- 윤동전 운동 부위 및 세트 수 이름 -->
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+    
+    <div class="row justify-content-center">
+        
+        <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-5 mb-3">
+                <h2 id="heading">
+                    <b>APT 시작하기</b>
+                </h2>
+                <p>APT가 최적의 운동을 추천해드릴게요!</p>
+                <form class="msform" method="post">
+                
+                    <!-- fieldsets -->
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <!-- <div class="col-7">
+                                    <h2 class="fs-title">운동부위 입력</h2>
+                                </div> -->
+                                <div class="col-5">
+                                </div>
+                            </div>
+                            <label class="fieldlabels">운동부위: </label>
+                            
+                
+                                <div class="body_form"></label></div>
+                                <div class="form">
+                                    <input type="checkbox" id="eb"  name="shoulder" value="1"/>
+                                    <div class="body">어깨<h6>dsaafsdasd</h6></div>
+                                    <input type="checkbox" id="eb" name="arm" value="1"/>
+                                    <div class="body">팔<h6>dsaafsdasd</h6></div>
+                                    <input type="checkbox" id="eb" name="chest" value="1"/>
+                                    <div class="body">가슴<h6>dsaafsdasd</h6></div>
+                                </div>
+                            
+                                <div class="body_form"></label></div>
+                                <div class="form">
+                                    <input type="checkbox" id="eb"  name="back" value="1"/>
+                                    <div class="body">등<h6>dsaafsdasd</h6></div>
+                                    <input type="checkbox" id="eb" name="stomach" value="1"/>
+                                    <div class="body">복부<h6>dsaafsdasd</h6></div>
+                                    <input type="checkbox" id="eb" name="core" value="1"/>
+                                    <div class="body">코어<h6>dsaafsdasd</h6></div>
+                                </div>
+                            
+                                <div class="body_form"></label></div>
+                                <div class="form">
+                                    <input type="checkbox" id="eb"  name="hip" value="1"/>
+                                    <div class="body">엉덩이<h6>dsaafsdasd</h6></div>
+                                    <input type="checkbox" id="eb" name="thigh" value="1"/>
+                                    <div class="body">허벅지<h6>dsaafsdasd</h6></div>
+                                    <input type="checkbox" id="eb" name="full_body" value="1"/>
+                                    <div class="body">전신<h6>dsaafsdasd</h6></div>
+                                </div>
+                            <br>
+                            <!-- <label class="fieldlabels">운동강도: </label>
+                            <input type="password" name="password2" id="password2" placeholder="Radio로 만들기" />
+                            -->
+                            <!-- <label class="fieldlabels">세트별 횟수: </label>
+                            <input type="text" name="count_per_set" id="count_per_set" placeholder="세트별 운동 횟수를 입력해주세요." value="{#form.count_per_set.data or '' #}" />
+
+                            <label class="fieldlabels">세트 수: </label>
+                            <input type="text" name="set_count" id="set_count" placeholder="세트 수를 입력해주세요."value="{#form.set_count.data or '' #}" />
+                            <label class="fieldlabels">운동강도</p>
+                                <div class="body_form"></label>
+                                <div class="form">
+                                    <input class="radiobtn" type="radio" id="power"  name="level" value=0/>
+                                    <div class="body">입문자<h6>dsaafsdasd</h6></div>
+                                    <input class="radiobtn" type="radio" id="power" name="level" value=1/>
+                                    <div class="body">초보자<h6>dsaafsdasd</h6></div>
+                                    <input class="radiobtn" type="radio" id="power" name="level" value=2/>
+                                    <div class="body">중급자<h6>dsaafsdasd</h6></div>
+                                </div>
+                            </div> -->
+                        </div>
+                    
+                        </div>
+                        <button type="submit" class="btn btn-primary"><a ></a> 추천결과확인 </button>
+                    </fieldset>
+
+                
+                    
+                            
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+<!--회원가입-->
+
+<!-- Site footer -->
+<footer class="site-footer">
+<div class="container">
+<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <h6>
+            <b>APT</b>
+        </h6>
+        <p>
+            <b>사업자등록번호 : 0000-00-00000</b>
+        </p>
+        <p class="text-justify">
+            <b>주소 : 경상남도 진주시 진주대로 501 경상국립대학교</b>
+        </p>
+        <p>
+            <b>E-mail : qwertyu@gmail.com</b>
+        </p>
+        <p>
+            <b>Tel : 010-1111-1111</b>
+        </p>
+
+    </div>
+
+    <div class="col-xs-6 col-md-3">
+        <h6>
+            <b>개발환경</b>
+        </h6>
+        <ul class="footer-links">
+            <li>Python</li>
+            <li>Open CV</li>
+            <li>MediPipe</li>
+            <li>Flask</li>
+            <li>GitHub</li>
+        </ul>
+    </div>
+
+    <div class="col-xs-6 col-md-3">
+        <h6>
+            <b>정보</b>
+        </h6>
+        <ul class="footer-links">
+            <li>FAQ</li>
+            <li>이용약관</li>
+            <li>개인정보처리방침</li>
+
+        </ul>
+    </div>
+</div>
+<hr>
+</div>
+<div class="container">
+<div class="row">
+    <div class="col-md-8 col-sm-6 col-xs-12">
+        <!-- <img src="{{ url_for('static',
+        filename='images/title_proto-removebg-preview.png') }}"/> -->
+        <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by Team APT.
+        </p>
+    </div>
+
+</div>
+</div>
+</footer>
+
+{% endblock %}

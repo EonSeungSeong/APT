@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <title>AI Posture Teacher</title>
+        <meta name="author" content="GNU">
+        <meta name="description" content="APT(AI Posture Teacher) 인공지능 자세 교정 서비스">
+        <!-- 부트스트랩 css-->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <!--파비콘-->
+        <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon" sizes="16x16">
+        <!--메인화면 css-->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/register.css') }}">
+        <!-- 긁어옴 Responsive.css-->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/responsive.css') }}">
+        <!-- Scrollbar Custom CSS -->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/jquery.mCustomScrollbar.min.css') }}">
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    </head>
+
+    <body class="main-layout">
+        <!-- 로딩-->
+        <!-- <div class="loader_bg">
+            <div class="loader"><img src="{{ url_for('static', filename='images/loading.gif') }}" alt="#"/></div>
+        </div> -->
+        <!-- 헤더 -->
+        <header>
+            <div class="header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                            <div class="full">
+                                <div class="center-desk">
+                                    <div class="logo">
+                                        <a class="logo-img" href="/"><img
+                                            src="{{ url_for('static', filename='images/title_proto-removebg-preview.png') }}"/></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                            <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                                <div class="collapse navbar-collapse" id="navbarsExample04">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/">
+                                                <b>HOME</b>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <b>|</b>
+                                        </li>
+                                        <!-- <li class="nav-item">
+                                            <a class="nav-link" href="#feature">
+                                                <b>APT</b>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <b>|</b>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#team">
+                                                <b>DEV</b>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <b>|</b>
+                                        </li> -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/auth/login">
+                                                <b>로그인</b>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <b>|</b>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/auth/signup">
+                                                <b>회원가입</b>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- header end~~~-->
+        <!--회원가입-->
+        <section>
+
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div
+                        class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+                        <div class="card px-0 pt-4 pb-0 mt-5 mb-3">
+                            <h2 id="heading">
+                                <b>APT 회원가입</b>
+                            </h2>
+                            <p>빈칸을 채워주세요!</p>
+                            <form class="msform" method="post">
+                                <!-- progressbar -->
+                                <ul id="progressbar">
+                                    <li class="active" id="account">
+                                        <strong>ID/비밀번호</strong>
+                                    </li>
+                                    <li id="personal">
+                                        <strong>신체정보</strong>
+                                    </li>
+                                    <li id="payment">
+                                        <strong>체형 및 운동목적</strong>
+                                    </li>
+                                    <li id="confirm">
+                                        <strong>회원가입완료!</strong>
+                                    </li>
+                                </ul>
+                                <div class="progress">
+                                    <div
+                                        class="progress-bar progress-bar-striped progress-bar-animated"
+                                        role="progressbar"
+                                        aria-valuemin="0"
+                                        aria-valuemax="100"></div>
+                                </div>
+                                {{ form.csrf_token }}
+                                {% include "form_errors.html" %}
+                                <br>
+                                <!-- fieldsets -->
+                                <fieldset>
+                                    <div class="form-card">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <h2 class="fs-title">개인정보 입력</h2>
+                                            </div>
+                                            <div class="col-5">
+                                                <h2 class="steps">Step 1 - 4</h2>
+                                            </div>
+                                        </div>
+                                        <label class="fieldlabels">이름: </label>
+                                        <input type="text" name="username" id="username" placeholder="이름" value="{{form.username.data or '' }}">
+
+                                        <label class="fieldlabels">이메일: </label>
+                                        <input type="text" name="email" id="email" placeholder="이메일" value="{{form.email.data or '' }}"/>
+
+                                        <label class="fieldlabels">비밀번호: </label>
+                                        <input type="password" name="password1" id="password1" placeholder="비밀번호" value="{{form.password1.data or '' }}"/>
+
+                                        <label class="fieldlabels">비밀번호 확인: </label>
+                                        <input type="password" name="password2" id="password2" placeholder="비밀번호 확인" value="{{form.password2.data or '' }}"/>
+
+                                    </div>
+                                    <input type="button" name="다음" class="next action-button" value="계속"/>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-card">
+                                        <div class="row">
+                                            <div class="col-7">
+                                                <h2 class="fs-title">신체정보:</h2>
+                                            </div>
+                                            <div class="col-5">
+                                                <h2 class="steps">Step 2 - 4</h2>
+                                            </div>
+                                        </div>
+                                        <p>
+                                            <label class="fieldlabels">성별:</p>
+                                            <div class="gender_form"></label>
+                                            <div class="form">
+                                                <input class="radiobtn" type="radio" id="gender"  name="gender" value="남자"/>
+                                                <div class="gender">남자</div>
+                                                <input class="radiobtn" type="radio" id="gender" name="gender" value="여자"/>
+                                                <div class="gender">여자</div>
+                                            </div>
+                                        </div>
+
+                                        <!-- <label class="radiolabels"> <input type="radio" name="gender" id="male"
+                                        value="male">남자</label><br> <label class="radiolabels"><input type="radio"
+                                        name="gender" id="female" value="female">여자<p></label> <label
+                                        class="fieldlabels"></p> -->
+                                    
+
+                                    <label class="fieldlabels">몸무게:</label>
+                                    <input type="text" name="weight" id="weight" placeholder="몸무게를 Kg를 제외하고 입력해주세요" value="{{form.weight.data or '' }}"/>
+                                    <label class="fieldlabels">키:
+                                    </label>
+                                    <input type="text" name="height" id="height" placeholder="키를 cm를 제외하고 입력해주세요." value="{{form.height.data or '' }}"/>
+                                    <label class="fieldlabels">나이:
+                                    </label>
+                                    <input type="text" name="age" id="age" placeholder="나이를 숫자로 입력해주세요" value="{{form.age.data or '' }}"/>
+                                </div>
+                                <input type="button" name="다음" class="next action-button" value="계속"/>
+                                <input
+                                    type="button"
+                                    name="previous"
+                                    class="previous action-button-previous"
+                                    value="이전"/>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <h2 class="fs-title">체형 및 운동목적:</h2>
+                                        </div>
+                                        <div class="col-5">
+                                            <h2 class="steps">Step 3 - 4</h2>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <label class="fieldlabels">자신의 체형을 선택해주세요</p>
+                                        <div class="body_form"></label>
+                                        <div class="form">
+                                            <input class="radiobtn" type="radio" id="bodyshape" name="bodyshape" value="저체중"/>
+                                            <div class="body">저체중<h6>dsaafsdasd</h6></div>
+                                            <input class="radiobtn" type="radio" id="bodyshape" name="bodyshape" value="평균"/>
+                                            <div class="body">평균<h6>dsaafsdasd</h6></div>
+                                            <input class="radiobtn" type="radio" id="bodyshape" name="bodyshape" value="비만"/>
+                                            <div class="body">비만<h6>dsaafsdasd</h6></div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        <label class="fieldlabels">운동목적을 선택해주세요</p>
+                                        <div class="purpose_form"></label>
+                                        <div class="form">
+                                            <input class="radiobtn" type="radio" id="purpose" name="purpose" value="체중관리"/>
+                                            <div class="body">체중관리<h6>dsaafsdasd</h6></div>
+                                            <input class="radiobtn" type="radio" id="purpose" name="purpose" value="근육성장"/>
+                                            <div class="body">근육성장<h6>dsaafsdasd</h6></div>
+                                            <input class="radiobtn" type="radio" id="purpose" name="purpose" value="선수관리"/>
+                                            <div class="body">선수관리<h6>dsaafsdasd</h6></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="button" name="next" class="next action-button" value="회원가입완료"/>
+                                <input
+                                    type="button"
+                                    name="previous"
+                                    class="previous action-button-previous"
+                                    value="이전"/>
+                            </fieldset>
+                            <fieldset>
+                                <div class="form-card">
+                                    <div class="row">
+                                        <div class="col-7">
+                                            <h2 class="fs-title">회원가입완료:</h2>
+                                        </div>
+                                        <div class="col-5">
+                                            <h2 class="steps">Step 4 - 4</h2>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <h2 class="purple-text text-center">
+                                        <strong>APT 회원이 되신 것을 축하드립니다!</strong>
+                                    </h2>
+                                    <br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-6">
+                                            <img
+                                            src="{{ url_for('static', filename='images/register_complt.jpg') }}" class="fit-image"/>
+                                        </div>
+                                    </div>
+                                    <br><br>
+                                    <div class="row justify-content-center">
+                                
+                                        <button type="submit" class="btn btn-primary"><a href="/auth/login"></a> APT시작하기 </button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--회원가입-->
+
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>
+                        <b>APT</b>
+                    </h6>
+                    <p>
+                        <b>사업자등록번호 : 0000-00-00000</b>
+                    </p>
+                    <p class="text-justify">
+                        <b>주소 : 경상남도 진주시 진주대로 501 경상국립대학교</b>
+                    </p>
+                    <p>
+                        <b>E-mail : qwertyu@gmail.com</b>
+                    </p>
+                    <p>
+                        <b>Tel : 010-1111-1111</b>
+                    </p>
+
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>
+                        <b>개발환경</b>
+                    </h6>
+                    <ul class="footer-links">
+                        <li>Python</li>
+                        <li>Open CV</li>
+                        <li>MediPipe</li>
+                        <li>Flask</li>
+                        <li>GitHub</li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>
+                        <b>정보</b>
+                    </h6>
+                    <ul class="footer-links">
+                        <li>FAQ</li>
+                        <li>이용약관</li>
+                        <li>개인정보처리방침</li>
+
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <!-- <img src="{{ url_for('static',
+                    filename='images/title_proto-removebg-preview.png') }}"/> -->
+                    <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by Team APT.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Javascript-->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/plugin.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+    <!-- sidebar -->
+    <script
+        src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+    <script
+        src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+</body>
+
+</html>

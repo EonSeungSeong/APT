@@ -1,0 +1,169 @@
+<!-- 측정 페이지 -->
+{% extends 'base.html' %}
+{% block content %}
+
+<script src="../static/js/jquery-3.4.1.min.js"></script>
+    <script>
+
+      $(document).ready(function()  {
+        setInterval("ajaxd()", 1000); // call every 1 seconds
+      });
+
+      function ajaxd()  {
+        // video_views에서 count값과 set값 가져오기
+        $("#resultReceived").load("/sendResult")
+        $("#resultSet").load("/sendSet")
+        $("#resultExer").load("/sendExer")
+
+        // count랑 set 수 받아오기
+        var count = $("#resultReceived").html();
+        var set = $("#resultSet").html();
+        
+        // 퍼센티지로 변경(progressbar 적용을 위해)
+        outcount = (count/3)*100;
+        outset = (set)*100;
+
+        // 퍼센티지 progressbar에 적용
+        $("#countprogress").css('width',outcount +'%');        
+        $("#setprogress").css('width',outset +'%');
+      }
+    </script>
+
+<section class="pt-5">
+    <div class="container-fluid pt-5">
+        <div style="text-align: left;" class="ml-4">
+            <div class="row">
+                <img src="{{ url_for('video.checkRoutine') }}" width="60%" height="30%"/>
+                <div class="col-md-4 border-left">
+                    <hr class="dark horizontal my-0 ">
+                    <div class="card-footer p-2">
+                        <p class="mb-0 text-center "><span class=" font-weight-bolder"><b>APT 서비스를 이용해주셔서 감사합니다.</b></p>
+                        <p class="mb-0 text-center "><span class=" font-weight-bolder"><b>{{g.user.username}}님 오늘도 운동도 파이팅입니다!</b></p>
+                    </div>
+                    <br>
+                    <hr class="dark horizontal my-0">
+                    <div class="card-footer p-2">
+                        <p class="mb-0"><span class="font-weight-bolder"><b>운동부위 : </b></span><b>팔</b></p>
+                    </div>
+                    <br>
+                    <hr class="dark horizontal my-0">
+                    <div class="card-footer p-2">
+                        <p class="mb-0"><span class=" font-weight-bolder"><b>운동명 : </b></span><b id="resultExer"></b></p>
+                    </div>
+                    <br>
+                    <hr class="dark horizontal my-0">
+                    <div class="card-footer p-2">
+                        <p class="mb-0"><span class=" font-weight-bolder"><b>목표 운동 개수 : </b></span><b>{{t_count}} 회 {{t_set}} 세트</b></p>
+                    </div>
+                    <br>
+                    <!-- <div class="progress blue c">
+                        <span class="progress-left">
+                            <span class="progress-bar"></span>
+                        </span>
+                        <span class="progress-right">
+                            <span class="progress-bar"></span>
+                        </span>
+                        
+                        <div class="progress-value">80%</div>
+                        
+                    </div>
+                    <div class="progress yellow">
+                        <span class="progress-left">
+                                        <span class="progress-bar"></span>
+                        </span>
+                        <span class="progress-right">
+                                        <span class="progress-bar"></span>
+                        </span>
+                        <div class="progress-value">37.5%</div>
+                    </div> -->
+                    <hr class="dark horizontal my-0">
+                    <div class="card-footer p-2">
+                        <p class="mb-0"><span class=" font-weight-bolder"><b>측정 개수 : </b></span><b><b id="resultReceived">{{ resultReceived }}</b> 회 / {{t_count}} 회</b></p>
+                    </div>
+                    <br>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated text-center" id="countprogress" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%" ></div>
+                    </div>
+                    <hr class="dark horizontal my-0">
+                    <div class="card-footer p-2">
+                        <p class="mb-0 text-left"><span class=" font-weight-bolder"><b>측정 세트 : </b></span><b id="resultSet">{{resultSet}}</b><b> 세트 / {{t_set}} 세트</b></p>
+                    </div>
+                    <br>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated text-center" id="setprogress" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <button class="btn btn-primary profile-button float-right" type="submit"><a href="/result">운동종료</a></button>
+                    
+                        <!-- <button type="submit" class="btn btn-primary"><a href="/auth/login"></a> APT시작하기 </button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    
+</section>
+<!-- Site footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h6>
+                    <b>APT</b>
+                </h6>
+                <p>
+                    <b>사업자등록번호 : 0000-00-00000</b>
+                </p>
+                <p class="text-justify">
+                    <b>주소 : 경상남도 진주시 진주대로 501 경상국립대학교</b>
+                </p>
+                <p>
+                    <b>E-mail : qwertyu@gmail.com</b>
+                </p>
+                <p>
+                    <b>Tel : 010-1111-1111</b>
+                </p>
+
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <h6>
+                    <b>개발환경</b>
+                </h6>
+                <ul class="footer-links">
+                    <li>Python</li>
+                    <li>Open CV</li>
+                    <li>MediPipe</li>
+                    <li>Flask</li>
+                    <li>GitHub</li>
+                </ul>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <h6>
+                    <b>정보</b>
+                </h6>
+                <ul class="footer-links">
+                    <li>FAQ</li>
+                    <li>이용약관</li>
+                    <li>개인정보처리방침</li>
+
+                </ul>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <!-- <img src="{{ url_for('static',
+                filename='images/title_proto-removebg-preview.png') }}"/> -->
+                <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by Team APT.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</footer>
+{% endblock %}

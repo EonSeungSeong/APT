@@ -1,0 +1,288 @@
+<!-- 추천결과UI -->
+{% extends 'base.html' %}
+{% block content %}
+    <section class="pt-4">
+        <div class="container-fluid pt-5">
+            <div class="row">
+                <!-- <div class="col-md-2 border-right ">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    </div>
+                </div> -->
+                <div class="col-md-12 border-right">
+                        <div class="p-3 py-3">
+                            <div class="justify-content-between text-center align-items-center mt-4 mb-3 md-3">
+                                <h1 class="text-center pb-3"><b style="background-color: #E0E5E9;">{{g.user.username}} 님의 운동 추천결과입니다!</b></h1>
+                                <h3 class="nospace "><b>오늘도 힘차게 운동을 시작해보세요!</b></h3>
+                                <!-- <label class="labels"></label><h5 class="text-center"  id="username" name="usename"><b>측정이 정확하지 않을 경우 기록을 수정하십시오.</b> -->
+                            </div>
+                            <section class="description" id="feature">
+                                <form method="post">
+                                <div class="Features">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="Our_box">
+                                                    <!-- <form method="post"> -->
+                                                    {%if resulthtml1 =='푸쉬업' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/rek8fuV8LRY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='니푸쉬업' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/B-D2DCbfhJA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='굿모닝' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/mPMucETaiZc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='Y-Exercise' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/i6ojmBJGgSA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='스탠딩사이드' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/KYv_caP92Gg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='크런치' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/3sEgafhjpQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='스탠딩 니업' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/rBLmgL6m30w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='라잉 레그 레이즈' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/oujD2ksPxp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='바이시클 크런치' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/-0sqJcNO098" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='시저크로스' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/Wp38vQfd2Js" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='플랭크' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/v54Jtmi2BwU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='버피 테스트' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/5LCpPGZs2SQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='스텝 포워드 다이나믹 런지' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/iQjCrmT2bMY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='스텝 백워드 다이나믹 런지' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/0bIfiXnbs-g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='사이드런지' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/LQTbZu3o8tg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml1 =='크로스런지' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/3_4GVbcno0A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% else %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/hfl5mEDuNMI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% endif %}
+                                                    <h4 class="pb-3">
+                                                        <b>{{resulthtml1}}</b>
+                                                        <br>
+                                                    </h4>
+                                                    <h5 style="font-size: 120%;">
+                                                        <b>1세트 운동 횟수: {{count_}}회 </b>
+                                                        <br>
+                                                    </h5>
+                                                    <h5 style="font-size: 120%;">
+                                                        <b>추천 세트 수: {{set_}}회 </b>
+                                                        <br>
+                                                    </h5>
+                                                    
+                                                    <!-- <input type="number" class="form-control  col-md-10 align-items-center" style="text-align: center; border-color: black;"  placeholder="오늘은 한세트에 몇회 운동하시나요?" id="count_1" name="count_1" value="" min="0" max="50" required>
+                                                    <input type="number" class="form-control align-items-center" style="text-align: center; border-color: black;"  placeholder="진행하실 세트 수를 입력해주세요." id="set_1" name="set_1" value="" min="0" max="50" required> -->
+                                                    <!-- <button class="btn btn-primary profile-button mt-4" type="submit"><a style="color: white;" href="/measurement">시작하기</a></button> -->
+                                                <!-- </form> -->
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="Our_box">
+                                                    <!-- <form method="post"> -->    
+                                                    {%if resulthtml2 =='푸쉬업' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/rek8fuV8LRY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='니푸쉬업' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/B-D2DCbfhJA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='굿모닝' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/mPMucETaiZc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='Y-Exercise' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/i6ojmBJGgSA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='스탠딩사이드' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/KYv_caP92Gg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='크런치' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/3sEgafhjpQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='스탠딩 니업' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/rBLmgL6m30w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='라잉 레그 레이즈' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/oujD2ksPxp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='바이시클 크런치' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/-0sqJcNO098" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='시저크로스' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/Wp38vQfd2Js" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='플랭크' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/v54Jtmi2BwU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='버피 테스트' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/5LCpPGZs2SQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='스텝 포워드 다이나믹 런지' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/iQjCrmT2bMY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='스텝 백워드 다이나믹 런지' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/0bIfiXnbs-g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='사이드런지' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/LQTbZu3o8tg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% elif resulthtml2 =='크로스런지' %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/3_4GVbcno0A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% else %}
+                                                    <iframe width="350" height="250" src="https://www.youtube.com/embed/hfl5mEDuNMI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                    {% endif %}
+                                                    <!-- <i><img src="{{ url_for('static', filename='images/pushup2.png') }}" alt="#"/></i> -->
+                                                    <h4 class="pb-3">
+                                                        <b>{{resulthtml2}}</b>
+                                                        <br>
+                                                    </h4>
+                                                    <h5 style="font-size: 120%;">
+                                                        <b>1세트 운동 횟수: {{count_}}회 </b>
+                                                        <br>
+                                                    </h5>
+                                                    <h5 style="font-size: 120%;">
+                                                        <b>추천 세트 수: {{set_}}회 </b>
+                                                        <br>
+                                                    </h5>
+                                                    
+                                                    <!-- <input type="number" class="form-control  col-md-10 align-items-center" style="text-align: center; border-color: black;"  placeholder="오늘은 한세트에 몇회 운동하시나요?" id="count_1" name="count_1" value="" min="0" max="50" required>
+                                                    <input type="number" class="form-control align-items-center" style="text-align: center; border-color: black;"  placeholder="진행하실 세트 수를 입력해주세요." id="set_1" name="set_1" value="" min="0" max="50" required> -->
+                                                    <!-- <button class="btn btn-primary profile-button mt-4" type="submit"><a style="color: white;" href="/measurement">시작하기</a></button> -->
+                                                <!-- </form> -->
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="Our_box">
+                                                    <!-- <form method="post"> -->
+                                                        {%if resulthtml3 =='푸쉬업' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/rek8fuV8LRY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='니푸쉬업' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/B-D2DCbfhJA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='굿모닝' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/mPMucETaiZc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='Y-Exercise' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/i6ojmBJGgSA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='스탠딩사이드' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/KYv_caP92Gg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='크런치' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/3sEgafhjpQo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='스탠딩 니업' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/rBLmgL6m30w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='라잉 레그 레이즈' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/oujD2ksPxp4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='바이시클 크런치' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/-0sqJcNO098" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='시저크로스' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/Wp38vQfd2Js" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='플랭크' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/v54Jtmi2BwU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='버피 테스트' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/5LCpPGZs2SQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='스텝 포워드 다이나믹 런지' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/iQjCrmT2bMY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='스텝 백워드 다이나믹 런지' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/0bIfiXnbs-g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='사이드런지' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/LQTbZu3o8tg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% elif resulthtml3 =='크로스런지' %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/3_4GVbcno0A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% else %}
+                                                        <iframe width="350" height="250" src="https://www.youtube.com/embed/hfl5mEDuNMI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                                        {% endif %}
+                                                    <h4 class="pb-3">
+                                                        <b>{{resulthtml3}}</b>
+                                                        <br>
+                                                    </h4>
+                                                    <h5 style="font-size: 120%;">
+                                                        <b>1세트 운동 횟수: {{count_}}회 </b>
+                                                        <br>
+                                                    </h5>
+                                                    <h5 style="font-size: 120%;">
+                                                        <b>추천 세트 수: {{set_}}회 </b>
+                                                        <br>
+                                                    </h5>
+                                                    
+                                                    <!-- <input type="number" class="form-control  col-md-10 align-items-center" style="text-align: center; border-color: black;"  placeholder="오늘은 한세트에 몇회 운동하시나요?" id="count_1" name="count_1" value="" min="0" max="50" required>
+                                                    <input type="number" class="form-control align-items-center" style="text-align: center; border-color: black;"  placeholder="진행하실 세트 수를 입력해주세요." id="set_1" name="set_1" value="" min="0" max="50" required> -->
+                                                    <!-- <button class="btn btn-primary profile-button mt-4" type="submit"><a style="color: white;" href="/measurement">시작하기</a></button> -->
+                                                <!-- </form> -->
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-primary profile-button mt-2 text-center align-items-center "  style="margin-left: 45%;" type="submit"><a style="color: white;">시작하기</a></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </form>
+                            </section>
+                            <!-- end Features -->
+                            <div class="row mt-2 text-center">
+                                <div class="col-md-6 text-center">
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-md-2 mt-4 ">
+                    <div class="p-3 py-3">
+                        
+                        
+                        <br>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Site footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>
+                        <b>APT</b>
+                    </h6>
+                    <p>
+                        <b>사업자등록번호 : 0000-00-00000</b>
+                    </p>
+                    <p class="text-justify">
+                        <b>주소 : 경상남도 진주시 진주대로 501 경상국립대학교</b>
+                    </p>
+                    <p>
+                        <b>E-mail : qwertyu@gmail.com</b>
+                    </p>
+                    <p>
+                        <b>Tel : 010-1111-1111</b>
+                    </p>
+
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>
+                        <b>개발환경</b>
+                    </h6>
+                    <ul class="footer-links">
+                        <li>Python</li>
+                        <li>Open CV</li>
+                        <li>MediPipe</li>
+                        <li>Flask</li>
+                        <li>GitHub</li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>
+                        <b>정보</b>
+                    </h6>
+                    <ul class="footer-links">
+                        <li>FAQ</li>
+                        <li>이용약관</li>
+                        <li>개인정보처리방침</li>
+
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <!-- <img src="{{ url_for('static',
+                    filename='images/title_proto-removebg-preview.png') }}"/> -->
+                    <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by Team APT.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.backtotop.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.mobilemenu.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.easypiechart.min.js') }}"></script>
+
+{% endblock %}

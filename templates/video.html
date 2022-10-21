@@ -1,0 +1,143 @@
+<!-- 카메라 테스트 페이지 -->
+{% extends 'base.html' %}
+{% block content %}
+<!-- content= ()초 -->
+<!-- <meta http-equiv="refresh" content="12 ;url=http://127.0.0.1:5000/premeasure"> -->
+<style type="text/css"> 
+    #backplease {
+                text-align: center;
+                background: black;
+                opacity : 0.6;
+                filter: alpha(opacity=60);
+                -moz-opacity:0.6;
+                -khtml-opacity: 0.6;
+                z-index:100;
+                height: 90vh;
+                font-size :3.0rem;                
+                }
+</style>
+
+<script type="text/javascript" language="JavaScript">
+    function hideDiv (){
+        document.getElementById("backplease").style.display="none";
+    }
+    self.setTimeout("hideDiv()",5550); // 초 지정    
+</script>
+
+<script src="../static/js/jquery-3.4.1.min.js"></script>
+    <script>
+
+      $(document).ready(function()  {
+        setInterval("ajaxd()", 1000); // call every 1 seconds
+      });
+
+      function ajaxd()  {
+        // reload result into element with id "resultReceived"
+        var tmp = $("#resultReceived").html();
+
+        if (tmp == "성공!") {
+            $("#prepage").trigger("click");        
+        }
+
+        else if(tmp =="성공!!") {
+            $("#meapage").trigger("click");
+        }
+
+        $("#resultReceived").load("/sendResult")
+
+        
+      }
+    </script>
+
+<section class="pt-5">
+    <div class="container-fluid pt-5">
+        <div id="backplease">
+            <div style="position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);"> Skeleton측정을 시작합니다.<br>
+            몸 전체가 카메라에 나오게 해주세요. </div>
+        </div>
+        <div style="text-align: left;" class="ml-4">
+            <div class="row">
+                <img class="camera" src="{{ url_for('video.checkSkeleton') }}" width="60%" height="30%" alt="#"/>               
+                <div class="col-md-4 border-left">
+                    <hr class="dark horizontal my-0 ">
+                    <div class="card-footer p-2">
+                        <p class="mb-0 text-center "><span class=" font-weight-bolder"><b>카메라 테스트를 시작합니다.</b></p>
+                        <p class="mb-0 text-center "><span class=" font-weight-bolder"><b>{{g.user.username}}님의 신체가 화면에 모두 나오게 해주세요.</b></p><br>
+                        <p class="mb-0 text-center "><span class=" font-weight-bolder"><b id="resultReceived">{{ resultReceived }}</b></p>
+                    </div>
+                    <button type="submit" id="prepage" onClick="location.href='/premeasure'"></button>
+                    <button type="submit" id="meapage" onClick="location.href='/measurement'"></button>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>    
+
+                
+<!-- Site footer -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <h6>
+                    <b>APT</b>
+                </h6>
+                <p>
+                    <b>사업자등록번호 : 0000-00-00000</b>
+                </p>
+                <p class="text-justify">
+                    <b>주소 : 경상남도 진주시 진주대로 501 경상국립대학교</b>
+                </p>
+                <p>
+                    <b>E-mail : qwertyu@gmail.com</b>
+                </p>
+                <p>
+                    <b>Tel : 010-1111-1111</b>
+                </p>
+
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <h6>
+                    <b>개발환경</b>
+                </h6>
+                <ul class="footer-links">
+                    <li>Python</li>
+                    <li>Open CV</li>
+                    <li>MediPipe</li>
+                    <li>Flask</li>
+                    <li>GitHub</li>
+                </ul>
+            </div>
+
+            <div class="col-xs-6 col-md-3">
+                <h6>
+                    <b>정보</b>
+                </h6>
+                <ul class="footer-links">
+                    <li>FAQ</li>
+                    <li>이용약관</li>
+                    <li>개인정보처리방침</li>
+
+                </ul>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <!-- <img src="{{ url_for('static',
+                filename='images/title_proto-removebg-preview.png') }}"/> -->
+                <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by Team APT.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</footer>
+{% endblock %}

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <title>AI Posture Teacher</title>
+        <meta name="author" content="GNU">
+        <meta name="description" content="APT(AI Posture Teacher) 인공지능 자세 교정 서비스">
+        <!-- 부트스트랩 css-->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+        <!--파비콘-->
+        <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon" sizes="16x16">
+        <!--로그인화면 css-->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+        <!-- 긁어옴 Responsive.css-->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/responsive.css') }}">
+        <!-- Scrollbar Custom CSS -->
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/jquery.mCustomScrollbar.min.css') }}">
+        
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/bootstrap-grid.css') }}">
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/bootstrap-reboot.css') }}">
+    </head>
+
+    <body class="main-layout">
+        <!-- 로딩-->
+        <!-- <div class="loader_bg">
+            <div class="loader"><img src="{{ url_for('static', filename='images/loading.gif') }}" alt="#"/></div>
+        </div> -->
+        <!-- 헤더 -->
+        <header>
+            <div class="header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                            <div class="full">
+                                <div class="center-desk">
+                                    <div class="logo">
+                                        <a class="logo-img" href="/"><img
+                                            src="{{ url_for('static', filename='images/title_proto-removebg-preview.png') }}"/></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                            <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                                <div class="collapse navbar-collapse" id="navbarsExample04">
+                                    <ul class="navbar-nav mr-auto">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/">
+                                                <b>HOME</b>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <b>|</b>
+                                        </li>
+                                        <!-- <li class="nav-item">
+                                            <a class="nav-link" href="feature">
+                                                <b>APT</b>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <b>|</b>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="team">
+                                                <b>DEV</b>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <b>|</b>
+                                        </li> -->
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/auth/login">
+                                                <b>로그인</b>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <b>|</b>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/auth/signup">
+                                                <b>회원가입</b>
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- header end~~~-->
+        <!-- 로그인화면 -->
+        <section class="banner_main">
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img
+                            src="{{ url_for('static', filename='images/man.jpg') }}" class="img2"/>
+                        </div>
+                        
+                        <div class="col-md-6 contents">
+                            <div class="row justify-content-center">
+                                <div class="col-md-8">
+                                    <div class="mb-6">
+                                        <h3><b>로그인</b></h3>
+                                    </div>
+                                    <form method="post">
+                                        {{ form.csrf_token }}
+                                        {% include "form_errors.html" %}
+                                        <div class="form-group first">
+                                            <!-- <label for="username">아이디</label> -->
+                                            <input type="text" placeholder="이메일" class="form-control" name="email" id="email" value="{{ form.email.data or '' }}">
+
+                                        </div>
+                                        <div class="form-group last mb-4">
+                                            <!-- <label for="password">비밀번호</label> -->
+                                            <input type="password" placeholder="비밀번호" class="form-control" name="password"  id="password" value="{{ form.password.data or '' }}">
+
+                                        </div>
+
+                                        <div class="d-flex mb-5 align-items-center">
+                                            <!-- <label class="control control--checkbox mb-0">
+                                                <span class="caption">아이디 기억하기</span>
+                                                <input type="checkbox" checked="checked"/>
+                                                <div class="control__indicator"></div>
+                                            </label> -->
+                                            <!-- <span class="ml-auto">
+                                                <a href="#" class="forgot-pass">비밀번호를 잊으셨나요?</a>
+                                            </span> -->
+                                        </div>
+                                        <div>
+                                            <button class="submit"  type="submit" class="btn btn-primary"><b>로그인</b></button>
+                                            <!-- <a href=/ class="btn btn-block btn-primary"><h4 class="login_font"><b>로그인</b></h6></a> -->
+                                        </div>
+                                
+                                        <!-- <span class="d-block text-center my-4 text-muted">&mdash; or login with  &mdash;</span> -->
+                                        <!--소셜로그인 -->
+                                        <!-- <div class="social-login">
+                                            <a href="#" class="facebook">
+                                                <span class="icon-kakao mr-3"></span>
+                                            </a>
+                                            <a href="#" class="twitter">
+                                                <span class="icon-naver mr-3"></span>
+                                            </a>
+                                            <a href="#" class="google">
+                                                <span class="icon-google mr-3"></span>
+                                            </a>
+                                        </div> -->
+                                        <span class="d-block text-center my-4 text-muted">&mdash; 아직 회원이 아니신가요?! &mdash;</span>
+                                        <div>
+                                            <a href=/auth/signup class="btn btn-block btn-primary"><h4 class="login_font"><b>회원가입</b></h6></a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--로그인화면 끝-->
+        <!-- footer -->
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-6">
+                        <h6>
+                            <b>APT</b>
+                        </h6>
+                        <p>
+                            <b>사업자등록번호 : 0000-00-00000</b>
+                        </p>
+                        <p class="text-justify">
+                            <b>주소 : 경상남도 진주시 진주대로 501 경상국립대학교</b>
+                        </p>
+                        <p>
+                            <b>E-mail : qwertyu@gmail.com</b>
+                        </p>
+                        <p>
+                            <b>Tel : 010-1111-1111</b>
+                        </p>
+
+                    </div>
+
+                    <div class="col-xs-6 col-md-3">
+                        <h6>
+                            <b>개발환경</b>
+                        </h6>
+                        <ul class="footer-links">
+                            <li>Python</li>
+                            <li>Open CV</li>
+                            <li>MediPipe</li>
+                            <li>Flask</li>
+                            <li>GitHub</li>
+                        </ul>
+                    </div>
+
+                    <div class="col-xs-6 col-md-3">
+                        <h6>
+                            <b>정보</b>
+                        </h6>
+                        <ul class="footer-links">
+                            <li>FAQ</li>
+                            <li>이용약관</li>
+                            <li>개인정보처리방침</li>
+
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-6 col-xs-12">
+                        <!-- <img src="{{ url_for('static',
+                        filename='images/title_proto-removebg-preview.png') }}"/> -->
+                        <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by Team APT.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- Javascript-->
+        <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/jquery-3.0.0.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/plugin.js') }}"></script>
+        <!-- sidebar -->
+        <script
+            src="{{ url_for('static', filename='js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+        <script
+            src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    </body>
+
+</html>

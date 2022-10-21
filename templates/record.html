@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+{% block content %}
+    <!-- Bootstrap core CSS -->
+    <!--파비콘-->
+    <link
+        rel="icon"
+        href="{{ url_for('static', filename='images/favicon.ico') }}"
+        type="image/x-icon"
+        sizes="16x16">
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+
+    <div class="container-fluid pt-5">
+        <div class="row pt-3">
+            <div class="col-md-3  border-right ">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                    class="rounded-circle mt-5"
+                    width="150px"
+                    src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+                    <span class="font-weight-bold">{{ g.user.username }}
+                        님</span><span class="text-black-50">{{ g.user.email }}</span>
+                    <span></span>
+
+                </div>
+
+            </div>
+            <div class="ml-4 pt-5">
+                <div class="card-deck mb-2 text-center pt-2">
+                    <!-- <div class="card mb-4 box-shadow">
+                        <div class="card-header" style="background-color: #BCABF7;">
+                            <h4 class="my-0 font-weight-normal"><b>총 운동시간(안되면 대체)</b></h4>
+                        </div>
+                        <div class="card-body" style=" border:1px solid gray; border-radius: 5px;">
+                            <h1 class="card-title pricing-card-title" style>
+                                00:00:00</h1>
+
+                        </div>
+                    </div>
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header" style="background-color: #FFC281 ;">
+                            <h4 class="my-0 font-weight-normal"><B>칼로리 소모량</B></h4>
+                        </div>
+                        <div class="card-body" style=" border:1px solid gray; border-radius: 5px;">
+                            <h1 class="card-title pricing-card-title">{{g.user.total_kcal}} Kcal</h1>
+                        </div>
+                    </div>
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header" style="background-color: #F8C22E;">
+                            <h4 class="my-0 font-weight-normal"><b>총 이용 횟수</b></h4>
+                        </div>
+                        <div class="card-body " style=" border:1px solid gray; border-radius: 5px;">
+                            <h1 class="card-title pricing-card-title">{{result_count}}</h1>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="my-3 bg-white rounded box-shadow">
+                    <h4 class="border-bottom  border-gray pb-2 mb-0"><b>{{g.user.username}}님의 운동기록</b></h4>
+                    <div class="media text-muted pt-2">
+                    </div>
+                    {% for result in result_list.items %}
+                        <!-- <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                            <div class="row">
+                                <div class="col md-6" style="background-color: #F4F3EA;">
+                                    <strong class="d-block text-gray-dark" style="font-size: 15px;">{{result.id}}</strong>
+                                    <h4>
+                                    운동부위 : {{result.main_part}}
+                                    <br>
+                                    운동종류 : {{result.ex_name}}
+                                    <br>
+                                    운동시간 : 
+                                    <br>
+                                    </h4>
+
+                                </div>
+                                <div class="col md-6" style="background-color: #F4F3EA;">
+                                    <h4>
+                                    <br>
+                                    소모칼로리 : {{result.kcal}}
+                                    <br>
+                                    세트수 : {{result.re_set}}
+                                    <br>
+                                    운동강도 : 
+                                    <br>
+                                </h4>
+                                </div>
+                            </div>
+
+                        </div> -->
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>시행 횟수</th>
+                                <th>세트 수</th>
+                                <th>칼로리 소모량</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>{{result.ex_name1}}</td>
+                                <td>{{result.re_count1 * result.re_set1}} 회 (1세트 :{{result.re_count1}}회)</td>
+                                <td>{{result.re_set1}} 세트</td>
+                                <td>{{result.kcal1}} Kcal</td>
+                            </tr>
+                            <tr>
+                                <td>{{result.ex_name2}}</td>
+                                <td>{{result.re_count2 * result.re_set2}} 회 (1세트 :{{result.re_count2}}회)</td>
+                                <td>{{result.re_set2}} 세트</td>
+                                <td>{{result.kcal2}} Kcal</td>
+                            </tr>
+                            <tr>
+                                <td>{{result.ex_name3}}</td>
+                                <td>{{result.re_count3 * result.re_set3}} 회 (1세트 :{{result.re_count3}}회)</td>
+                                <td>{{result.re_set3}} 세트</td>
+                                <td>{{result.kcal3}} Kcal</td>
+                            </tr>
+                            </tbody> 
+                        
+                        </table>
+                    {% endfor %}
+                    <!-- 페이징처리 시작 -->
+    <ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if result_list.has_prev %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ result_list.prev_num }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="javascript:void(0)">이전</a>
+        </li>
+        {% endif %}
+        {% for page_num in result_list.iter_pages() %}
+        {% if page_num %}
+        {% if page_num != result_list.page %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ page_num }}">{{ page_num }}</a>
+        </li>
+        {% else %}
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" href="javascript:void(0)">{{ page_num }}</a>
+        </li>
+        {% endif %}
+        {% else %}
+        <li class="disabled">
+            <a class="page-link" href="javascript:void(0)">...</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if result_list.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ result_list.next_num }}">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="javascript:void(0)">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+    <!-- 페이징처리 끝 -->
+                    <div class="media text-muted pt-3">
+
+                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray" style="color: #FFF;">
+                            <strong class="d-block text-gray-dark"></strong>
+                            skfnfbsdjgbdksfnskafksmdnlkasnfkasdnfskdmlaskmdlkamds
+                            eknskdfnskdfnmflaksdmsladmaslkdasdasfgdfsgksdfnaㅁㄴㅇㅁㄴㅇㄴㅁㅇㄴㅁㅇknsdnsdadsafsdgdsf
+                            asdasdas
+                        </p>
+                    </div>
+                    <small class="d-block text-right mt-3">
+                        <a href="#">Up to Top</a>
+                    </small>
+                </div>
+                <div class="text-center mb-3">
+                    <button class="btn btn-primary profile-button" type="submit">
+                        <a style="color: #FFF;" href="/mypage">뒤로가기</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <h6>
+                        <b>APT</b>
+                    </h6>
+                    <p>
+                        <b>사업자등록번호 : 0000-00-00000</b>
+                    </p>
+                    <p class="text-justify">
+                        <b>주소 : 경상남도 진주시 진주대로 501 경상국립대학교</b>
+                    </p>
+                    <p>
+                        <b>E-mail : qwertyu@gmail.com</b>
+                    </p>
+                    <p>
+                        <b>Tel : 010-1111-1111</b>
+                    </p>
+
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>
+                        <b>개발환경</b>
+                    </h6>
+                    <ul class="footer-links">
+                        <li>Python</li>
+                        <li>Open CV</li>
+                        <li>MediPipe</li>
+                        <li>Flask</li>
+                        <li>GitHub</li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>
+                        <b>정보</b>
+                    </h6>
+                    <ul class="footer-links">
+                        <li>FAQ</li>
+                        <li>이용약관</li>
+                        <li>개인정보처리방침</li>
+
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by Team APT.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}
